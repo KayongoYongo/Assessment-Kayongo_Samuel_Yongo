@@ -9,6 +9,7 @@ from models.medicine import Medicine
 from models.customer import Customer
 from models.inventory import Inventory
 from models.order import Order
+from models.payment import Payment
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 # Load environment variables from the .env file
@@ -17,7 +18,7 @@ load_dotenv()
 # Create declarative base
 Base = declarative_base()
 
-classes = {"Medicine": Medicine, "Customer": Customer, "Inventory": Inventory, "Order": Order}
+classes = {"Medicine": Medicine, "Customer": Customer, "Inventory": Inventory, "Order": Order, "Payment": Payment}
 
 class DB:
     """interaacts with the MySQL database"""

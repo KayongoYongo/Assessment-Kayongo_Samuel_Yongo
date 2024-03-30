@@ -34,12 +34,12 @@ def create_customers():
 
     if data is None:
         abort(400, 'Not a JSON')
-    if data.get("title") is None:
-        abort(400, 'Missing title')
-    if data.get("status") is None:
-        abort(400, 'Missing status')
-    if data.get("description") is None:
-        abort(400, 'Missing description')
+    if data.get("email") is None:
+        abort(400, 'Missing email')
+    if data.get("password") is None:
+        abort(400, 'Missing password')
+    if data.get("age") is None:
+        abort(400, 'Missing age')
 
     # Create an instance of the customer class
     new_customer = Customer(**data)

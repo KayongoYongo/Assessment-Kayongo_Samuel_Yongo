@@ -1,6 +1,7 @@
 
 from sqlalchemy import Column, Integer, String, Text
 from models.base_model import Base, BaseModel
+from sqlalchemy.orm import relationship
 
 """
 By inheriting from Base, the User class inherits all the features 
@@ -19,6 +20,12 @@ class Customer(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     age = Column(Integer, nullable=False, default=18)
+
+    # Define relationship to Order (one-to-many)
+    orders = relationship("Order", back_populates="customer")
+
+    # Define relationship to Order (one-to-many)
+    payment = relationship("Payment", back_populates="customer")
 
     def __init__(self, **kwargs):
         """initializes user"""

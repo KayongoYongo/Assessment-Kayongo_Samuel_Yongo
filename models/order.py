@@ -17,11 +17,17 @@ class Order(BaseModel, Base):
     customer_id = Column(String(60), ForeignKey('customer.id'), nullable=False)
     quantity = Column(Integer, nullable=False)
     total_amount = Column(Integer, nullable=False)
-    delivery_trype = Column(String(255), nullable=False)
+    delivery_type = Column(String(255), nullable=False)
     status = Column(String(255), nullable=False)
-    # Define a relationship to the Medicine table
-    medicine = relationship("Medicine", back_populates="inventory")
-    customer = relationship("Customer", back_populates="inventory")
+
+    # Define relationship to Customer (many-to-one)
+    customer = relationship("Customer", back_populates="orders")
+
+    # Define relationship to Medicine (many-to-one)
+    medicine = relationship("Medicine", back_populates="orders")
+
+    # Define a relationship to Payment (one-to-one)
+    payment = relationship("Payment", back_populates="order", uselist=False)
 
     def __init__(self, **kwargs):
         """initializes user"""

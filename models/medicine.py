@@ -23,7 +23,10 @@ class Medicine(BaseModel, Base):
     description = Column(Text)
 
     # Define a relationship to the Inventory table
-    inventory = relationship("Inventory", back_populates="medicine")
+    inventory = relationship("Inventory", uselist=False, back_populates="medicine")
+
+    # Define relationship to Order (one-to-many)
+    orders = relationship("Order", back_populates="medicine")
 
     def __init__(self, **kwargs):
         """initializes user"""

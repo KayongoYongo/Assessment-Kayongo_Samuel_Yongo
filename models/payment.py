@@ -19,9 +19,11 @@ class Payment(BaseModel, Base):
     total_amount = Column(Integer, nullable=False)
     delivery_trype = Column(String(255), nullable=False)
     status = Column(String(255), nullable=False)
+
+
     # Define a relationship to the Medicine table
-    order = relationship("Order", back_populates="inventory")
-    customer = relationship("Customer", back_populates="inventory")
+    order = relationship("Order", back_populates="payment")
+    customer = relationship("Customer", back_populates="payment")
 
     def __init__(self, **kwargs):
         """initializes user"""

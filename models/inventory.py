@@ -16,6 +16,9 @@ class Inventory(BaseModel, Base):
     medicine_id = Column(String(60), ForeignKey('medicine.id'), nullable=False)
     quantity = Column(Integer, nullable=False)
 
+    # Define a relationship to the Inventory table
+    medicine = relationship("Medicine", back_populates="inventory")
+
     def __init__(self, **kwargs):
         """initializes user"""
         super().__init__(**kwargs)

@@ -17,7 +17,6 @@ class Medicine(BaseModel, Base):
     name = Column(String(255), nullable=False)
     dosage = Column(String(255), nullable=False)
     cost = Column(Integer, nullable=False)
-    description = Column(String(255), nullable=False)
     storage_conditions = Column(String(255), nullable=False)
     manufacturer = Column(String(255), nullable=False)
     description = Column(Text)

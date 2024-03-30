@@ -1,6 +1,6 @@
-
-from sqlalchemy import Column, Integer, String, Text
 from models.base_model import Base, BaseModel
+from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy.orm import relationship
 
 """
 By inheriting from Base, the User class inherits all the features 
@@ -21,6 +21,9 @@ class Medicine(BaseModel, Base):
     storage_conditions = Column(String(255), nullable=False)
     manufacturer = Column(String(255), nullable=False)
     description = Column(Text)
+
+    # Define a relationship to the Inventory table
+    inventory = relationship("Inventory", back_populates="medicine")
 
     def __init__(self, **kwargs):
         """initializes user"""

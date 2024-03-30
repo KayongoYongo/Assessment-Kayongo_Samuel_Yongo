@@ -14,11 +14,11 @@ def get_customers():
     return jsonify(customers), 200
 
 @app_views.route('/customers/<customer_id>', methods=['GET'], strict_slashes=False)
-def get_individual_customers(task_id):
+def get_individual_customers(customer_id):
     """"
     Returns indivuidual customers by id
     """
-    customer = storage.get(Customer, task_id)
+    customer = storage.get(Customer, customer_id)
 
     if customer is None:
         abort(404)
@@ -50,11 +50,11 @@ def create_customers():
     return jsonify(new_customer.to_dict()), 201
 
 @app_views.route('/customers/<customer_id>', methods=['PUT'], strict_slashes=False)
-def update_customers(task_id):
+def update_customers(customer_id):
     """
     This function updates a customer based on the ID
     """
-    customer = storage.get(Customer, task_id)
+    customer = storage.get(Customer, customer_id)
 
     if customer is None:
         abort(404)

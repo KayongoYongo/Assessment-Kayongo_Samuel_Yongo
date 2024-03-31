@@ -18,7 +18,7 @@ class Order(BaseModel, Base):
     quantity = Column(Integer, nullable=False)
     total_amount = Column(Integer, nullable=False)
     delivery_type = Column(String(255), nullable=False)
-    status = Column(String(255), nullable=False)
+    status = Column(String(255), nullable=False, default='pending')
 
     # Define relationship to Customer (many-to-one)
     customer = relationship("Customer", back_populates="orders")

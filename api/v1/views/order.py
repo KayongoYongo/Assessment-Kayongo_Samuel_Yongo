@@ -42,8 +42,6 @@ def create_order():
         abort(400, 'Missing quantity')
     if data.get("total_amount") is None:
         abort(400, 'Missing total_amount')
-    if data.get("delivery_type") is None:
-        abort(400, 'Missing delivery_type')
     if data.get("status") is None:
         abort(400, 'Missing status')
 

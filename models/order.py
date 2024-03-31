@@ -17,7 +17,6 @@ class Order(BaseModel, Base):
     customer_id = Column(String(60), ForeignKey('customer.id'), nullable=False)
     quantity = Column(Integer, nullable=False)
     total_amount = Column(Integer, nullable=False)
-    delivery_type = Column(String(255), nullable=False)
     status = Column(String(255), nullable=False, default='pending')
 
     # Define relationship to Customer (many-to-one)

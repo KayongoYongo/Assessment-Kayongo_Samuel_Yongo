@@ -18,8 +18,7 @@ class Payment(BaseModel, Base):
     quantity = Column(Integer, nullable=False)
     total_amount = Column(Integer, nullable=False)
     delivery_trype = Column(String(255), nullable=False)
-    status = Column(String(255), nullable=False)
-
+    status = Column(String(255), nullable=False, default='pending')
 
     # Define a relationship to the Medicine table
     order = relationship("Order", back_populates="payment")

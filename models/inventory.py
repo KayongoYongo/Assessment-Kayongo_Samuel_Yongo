@@ -22,3 +22,11 @@ class Inventory(BaseModel, Base):
     def __init__(self, **kwargs):
         """initializes user"""
         super().__init__(**kwargs)
+
+    def to_dict(self):
+        """
+        Returns a dictionary representation of the class instance
+        """
+        inventory_dict = super().to_dict()
+        inventory_dict['medicine_name'] = self.medicine.name
+        return inventory_dict

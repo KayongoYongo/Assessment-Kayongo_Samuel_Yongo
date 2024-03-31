@@ -16,7 +16,6 @@ class Payment(BaseModel, Base):
     order_id = Column(String(60), ForeignKey('order.id'), nullable=False)
     customer_id = Column(String(60), ForeignKey('customer.id'), nullable=False)
     quantity = Column(Integer, nullable=False)
-    total_amount = Column(Integer, nullable=False)
     delivery_trype = Column(String(255), nullable=False)
     status = Column(String(255), nullable=False, default='pending')
 

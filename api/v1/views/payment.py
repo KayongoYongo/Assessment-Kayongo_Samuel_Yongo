@@ -6,7 +6,7 @@ from models import storage
 @app_views.route('/payments', methods=['GET'], strict_slashes=False)
 def get_payments():
     """
-    Returns all payments
+    Returns all payment instances
     """
     payment_objs = storage.all(Payment)
     payments = [obj.to_dict() for obj in payment_objs.values()]

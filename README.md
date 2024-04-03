@@ -4,7 +4,7 @@ A repository for my CEMA internship assessment
 The project has been built using Kotlin for the frontend and Flask API for the backend.
 
 ## Getting started
-To get started, run this command on the terminal `python -m api.v1.app1`. The provided command will
+To get started, run this command on the terminal `python -m api.v1.app`. The provided command will
 start the flask API.
 
 ## Add databases
